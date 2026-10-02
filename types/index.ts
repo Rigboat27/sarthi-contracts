@@ -76,24 +76,38 @@ export interface ApiEnvelope<T = unknown> {
   error: unknown;
 }
 
-export type EntityType = "broker" | "listed company" | "RTA" | "IEPF" | null;
+export type EntityType = "broker" | "listed company" | "RTA" | "IEPF";
+
+export type PriorContactProof = "emailed" | "none" | "rejected";
+
+export interface Attachment {
+  /** In-memory only. Never persisted. */
+  dataUrl: string;
+  name: string;
+  size: number;
+  type: string;
+}
 
 export interface GrievanceState {
   complaintCategory: string | null;
   entityName: string | null;
-  entityType: EntityType;
-  clientId: string | null;
-  folioNo: string | null;
-  dpid: string | null;
+  entityType: EntityType | null;
+  clientIdFolioNoDpid: string | null;
   issueSummaryEnglish: string | null;
   issueSummaryOriginal: string | null;
   incidentDate: string | null;
   amountInvolved: number | null;
   priorContactDate: string | null;
-  priorContactProof: string | null;
+  priorContactProof: PriorContactProof | null;
+  priorContactConfirmed: boolean;
+  priorContactTicket: string | null;
+  userName: string | null;
+  userPhone: string | null;
+  soldDescription: string | null;
   reliefSought: string | null;
-  attachments: string[];
-  userLanguage: string | null;
+  attachments: Attachment[];
+  userLanguage: string;
+  skippedFields: string[];
 }
 
 export interface FamilyMember {

@@ -9,7 +9,7 @@
     "deceasedName": { "type": "string" },
     "applicantName": { "type": "string" },
     "relationship": { "type": "string" },
-    "folioOrDpid": { "type": "string" },
+    "folioOrDpid": { "type": ["string", "null"] },
     "familyTree": {
       "type": "array",
       "items": {

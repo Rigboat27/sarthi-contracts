@@ -2,8 +2,29 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sarthi.in/contracts/grievanceState.schema.json",
   "title": "GrievanceState",
-  "description": "Canonical complaint state produced by the Grievance Agent (extension).",
+  "description": "Canonical complaint state produced by the Grievance Agent (extension). Mirrors the extension's src/shared/types.ts exactly.",
   "type": "object",
+  "required": [
+    "complaintCategory",
+    "entityName",
+    "entityType",
+    "clientIdFolioNoDpid",
+    "issueSummaryEnglish",
+    "issueSummaryOriginal",
+    "incidentDate",
+    "amountInvolved",
+    "priorContactDate",
+    "priorContactProof",
+    "priorContactConfirmed",
+    "priorContactTicket",
+    "userName",
+    "userPhone",
+    "soldDescription",
+    "reliefSought",
+    "attachments",
+    "userLanguage",
+    "skippedFields"
+  ],
   "properties": {
     "complaintCategory": { "type": ["string", "null"] },
     "entityName": { "type": ["string", "null"] },
@@ -11,17 +32,36 @@
       "type": ["string", "null"],
       "enum": ["broker", "listed company", "RTA", "IEPF", null]
     },
-    "clientId": { "type": ["string", "null"] },
-    "folioNo": { "type": ["string", "null"] },
-    "dpid": { "type": ["string", "null"] },
+    "clientIdFolioNoDpid": { "type": ["string", "null"] },
     "issueSummaryEnglish": { "type": ["string", "null"] },
     "issueSummaryOriginal": { "type": ["string", "null"] },
     "incidentDate": { "type": ["string", "null"] },
     "amountInvolved": { "type": ["number", "null"] },
     "priorContactDate": { "type": ["string", "null"] },
-    "priorContactProof": { "type": ["string", "null"] },
+    "priorContactProof": {
+      "type": ["string", "null"],
+      "enum": ["emailed", "none", "rejected", null]
+    },
+    "priorContactConfirmed": { "type": "boolean" },
+    "priorContactTicket": { "type": ["string", "null"] },
+    "userName": { "type": ["string", "null"] },
+    "userPhone": { "type": ["string", "null"] },
+    "soldDescription": { "type": ["string", "null"] },
     "reliefSought": { "type": ["string", "null"] },
-    "attachments": { "type": "array", "items": { "type": "string" } },
-    "userLanguage": { "type": ["string", "null"] }
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["dataUrl", "name", "size", "type"],
+        "properties": {
+          "dataUrl": { "type": "string" },
+          "name": { "type": "string" },
+          "size": { "type": "integer" },
+          "type": { "type": "string" }
+        }
+      }
+    },
+    "userLanguage": { "type": "string" },
+    "skippedFields": { "type": "array", "items": { "type": "string" } }
   }
 }
