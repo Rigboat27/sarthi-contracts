@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sarthi.in/contracts/apiEnvelope.schema.json",
+  "title": "ApiEnvelope",
+  "description": "Uniform wrapper for every Sarthi API response.",
+  "type": "object",
+  "required": ["ok", "data", "meta", "error"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "data": {},
+    "meta": {
+      "type": "object",
+      "properties": {
+        "tokens": {
+          "type": "object",
+          "properties": {
+            "in": { "type": "integer", "minimum": 0 },
+            "out": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "costEstimateInr": { "type": "number", "minimum": 0 },
+        "mock": { "type": "boolean" }
+      }
+    },
+    "error": { "type": ["object", "null"] }
+  }
+}

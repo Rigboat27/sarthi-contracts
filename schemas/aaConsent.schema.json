@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sarthi.in/contracts/aaConsent.schema.json",
+  "title": "AaConsent",
+  "description": "Account Aggregator consent artefact request/response.",
+  "type": "object",
+  "properties": {
+    "aggregatorId": { "type": "string" },
+    "scopes": { "type": "array", "items": { "type": "string" } },
+    "consentId": { "type": "string" },
+    "artefact": {
+      "type": "object",
+      "properties": {
+        "consentId": { "type": "string" },
+        "purpose": { "type": "string" },
+        "purposeCode": { "type": "string" },
+        "fipTypes": { "type": "array", "items": { "type": "string" } },
+        "expiresAt": { "type": "string" }
+      },
+      "required": ["consentId", "purpose", "purposeCode"]
+    }
+  },
+  "required": ["aggregatorId", "scopes"]
+}

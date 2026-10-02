@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sarthi.in/contracts/grievanceState.schema.json",
+  "title": "GrievanceState",
+  "description": "Canonical complaint state produced by the Grievance Agent (extension).",
+  "type": "object",
+  "properties": {
+    "complaintCategory": { "type": ["string", "null"] },
+    "entityName": { "type": ["string", "null"] },
+    "entityType": {
+      "type": ["string", "null"],
+      "enum": ["broker", "listed company", "RTA", "IEPF", null]
+    },
+    "clientId": { "type": ["string", "null"] },
+    "folioNo": { "type": ["string", "null"] },
+    "dpid": { "type": ["string", "null"] },
+    "issueSummaryEnglish": { "type": ["string", "null"] },
+    "issueSummaryOriginal": { "type": ["string", "null"] },
+    "incidentDate": { "type": ["string", "null"] },
+    "amountInvolved": { "type": ["number", "null"] },
+    "priorContactDate": { "type": ["string", "null"] },
+    "priorContactProof": { "type": ["string", "null"] },
+    "reliefSought": { "type": ["string", "null"] },
+    "attachments": { "type": "array", "items": { "type": "string" } },
+    "userLanguage": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sarthi.in/contracts/holding.schema.json",
+  "title": "Holding",
+  "description": "A single financial account/fund record returned by an Account Aggregator FIP.",
+  "type": "object",
+  "required": ["id", "type", "provider", "providerCode", "label"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["bank", "demat", "mutual_fund", "insurance", "ppf", "fd"]
+    },
+    "provider": { "type": "string" },
+    "providerCode": { "type": "string" },
+    "label": { "type": "string" },
+    "maskedNumber": { "type": ["string", "null"] },
+    "value": { "type": ["number", "null"] },
+    "identifier": { "type": ["string", "null"] },
+    "detail": { "type": ["string", "null"] },
+    "fixUrl": { "type": ["string", "null"] },
+    "nominee": {
+      "type": ["object", "null"],
+      "required": ["name", "relationship", "verified"],
+      "properties": {
+        "name": { "type": "string" },
+        "relationship": { "type": "string" },
+        "verified": { "type": "boolean" }
+      }
+    }
+  }
+}

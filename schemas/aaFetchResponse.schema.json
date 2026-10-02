@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sarthi.in/contracts/aaFetchResponse.schema.json",
+  "title": "AaFetchResponse",
+  "description": "Account Aggregator fetch result, shaped like a Setu/Finvu FIP response.",
+  "type": "object",
+  "required": ["consentId", "fips"],
+  "properties": {
+    "consentId": { "type": "string" },
+    "fips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fipId", "type", "data"],
+        "properties": {
+          "fipId": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["DEPOSIT", "INVESTMENTS", "INSURANCE", "PPF"]
+          },
+          "data": {
+            "type": "array",
+            "items": { "$ref": "holding.schema.json" }
+          }
+        }
+      }
+    }
+  }
+}
