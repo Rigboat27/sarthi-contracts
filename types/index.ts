@@ -113,14 +113,24 @@ export interface GrievanceState {
 export interface FamilyMember {
   name: string;
   relationship: string;
-  share: number | null;
+  age?: string | null;
+  share?: number | null;
 }
 
 export interface Affidavit {
   deceasedName: string;
   applicantName: string;
   relationship: string;
-  folioOrDpid?: string;
+  applicantAge?: string | null;
+  applicantAddress?: string | null;
+  companyName?: string | null;
+  folioOrDpid?: string | null;
+  certificateNos?: string | null;
+  distinctiveNos?: string | null;
+  faceValue?: string | null;
+  numberOfShares?: string | null;
+  dateOfDeath?: string | null;
+  placeOfDeath?: string | null;
   familyTree: FamilyMember[];
   noObjectionFrom?: string[];
 }

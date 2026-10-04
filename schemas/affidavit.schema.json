@@ -2,14 +2,23 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sarthi.in/contracts/affidavit.schema.json",
   "title": "Affidavit",
-  "description": "Legal affidavit/NOC payload generated for share transmission.",
+  "description": "Transmission-of-shares affidavit payload (official SEBI format inputs).",
   "type": "object",
-  "required": ["deceasedName", "applicantName", "relationship", "familyTree"],
+  "required": ["deceasedName", "applicantName", "relationship"],
   "properties": {
     "deceasedName": { "type": "string" },
     "applicantName": { "type": "string" },
     "relationship": { "type": "string" },
+    "applicantAge": { "type": ["string", "null"] },
+    "applicantAddress": { "type": ["string", "null"] },
+    "companyName": { "type": ["string", "null"] },
     "folioOrDpid": { "type": ["string", "null"] },
+    "certificateNos": { "type": ["string", "null"] },
+    "distinctiveNos": { "type": ["string", "null"] },
+    "faceValue": { "type": ["string", "null"] },
+    "numberOfShares": { "type": ["string", "null"] },
+    "dateOfDeath": { "type": ["string", "null"] },
+    "placeOfDeath": { "type": ["string", "null"] },
     "familyTree": {
       "type": "array",
       "items": {
@@ -18,6 +27,7 @@
         "properties": {
           "name": { "type": "string" },
           "relationship": { "type": "string" },
+          "age": { "type": ["string", "null"] },
           "share": { "type": ["number", "null"] }
         }
       }
