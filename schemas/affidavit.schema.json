@@ -9,6 +9,8 @@
     "deceasedName": { "type": "string" },
     "applicantName": { "type": "string" },
     "relationship": { "type": "string" },
+    "gender": { "type": ["string", "null"] },
+    "fatherName": { "type": ["string", "null"] },
     "applicantAge": { "type": ["string", "null"] },
     "applicantAddress": { "type": ["string", "null"] },
     "companyName": { "type": ["string", "null"] },

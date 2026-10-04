@@ -121,6 +121,8 @@ export interface Affidavit {
   deceasedName: string;
   applicantName: string;
   relationship: string;
+  gender?: string | null;
+  fatherName?: string | null;
   applicantAge?: string | null;
   applicantAddress?: string | null;
   companyName?: string | null;
