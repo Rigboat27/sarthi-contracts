@@ -7,6 +7,7 @@
   "required": ["consentId", "fips"],
   "properties": {
     "consentId": { "type": "string" },
+    "ownerName": { "type": "string" },
     "fips": {
       "type": "array",
       "items": {

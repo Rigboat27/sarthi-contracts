@@ -55,6 +55,7 @@ export interface AaConsentResponse {
 
 export interface AaFetchResponse {
   consentId: string;
+  ownerName?: string;
   fips: Fip[];
 }
 
